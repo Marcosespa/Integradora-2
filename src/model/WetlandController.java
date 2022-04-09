@@ -67,12 +67,15 @@ public class WetlandController{
         boolean control=true;
 
         for(int i=0; i<MAX_WETLANDS && control==true; i++){
-            if(wetlands[i]){
-
+            if(wetlands[i].getName().equalsIgnoreCase(wetlandName)){
+                control= false; // Para que no se repita 
+                wetlands[i].addSpecie(name, scientificName, migratoryType, type);
+                out="The specie "+name+" was successfully registered in the wetland "+wetlandName;
+            }else{
+                control=false;
+                out="The register was not successful because the wetland "+ wetlandName+" doesn't exist";
             }
         }
-
-
         return out;
     }
 

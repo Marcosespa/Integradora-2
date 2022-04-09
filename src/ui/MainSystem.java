@@ -2,7 +2,6 @@ package ui;
 import java.util.Scanner;
 //import model.Wetland;
 
-import javax.print.DocFlavor.STRING;
 
 import model.WetlandController;
 

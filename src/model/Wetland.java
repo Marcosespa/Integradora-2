@@ -161,20 +161,16 @@ public class Wetland
 		}
 		return position;
     }
-    public String addSpecie(String wetlandName,String name, String scientificName, String migratoryType, String type) {
+    public String addSpecie(String name, String scientificName, String migratoryType, String type) {
 		String out = "";		
 		int emptyPos=getEmptyPositionSpecies(); //busco la primera posición vacía
 		// si el arreglo está lleno?
 		out = "Entra al metodo";
-
 		if(emptyPos == -1){ // está lleno
-
 			//no se puede agregar
 			out = "El arreglo está lleno";
-
-
 		}else{ //Si no está lleno
-			//wetlands[indexWetlands] =  new Wetland (name, locationZone,type, size, urlPicture, protection, nameOfTheZone);
+			species[emptyPos]= new Species(name, scientificName, migratoryType, type); 
 			out = "El registro fue exitoso";
 		}
 		return out;
