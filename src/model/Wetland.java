@@ -142,13 +142,21 @@ public class Wetland
 		this.nameOfTheZone=nameOfTheZone;
 	}	
 
-	/*
+	
 	// toString()
-	public String toString()
+	
+	public  String toStringWetland()
 	{
-		return "\n Name: "+this.getName()+"\n ScientificZone: "+this.getScientificZone+"\n migratoryType:"+this.getMigratoryType+"\n Type:"+this.getType;
+		return "\n The name: "+this.getName()+
+		" \n Location Zone: "+this.getLocationZone()+
+		"\n type:"+this.getType()+
+		"\n Size:"+this.getSize()+
+		"\n Url picture"+this.getUrlPicture()+
+		"\n Protection"+ this.getProtection()+
+		"\n Name of the zone"+this.getNameOfTheZone();
 	}
-	*/
+	
+
 
 	public int getEmptyPositionSpecies(){
         boolean emptyPosition = false;
@@ -170,6 +178,7 @@ public class Wetland
 			//no se puede agregar
 			out = "El arreglo está lleno";
 		}else{ //Si no está lleno
+
 			species[emptyPos]= new Species(name, scientificName, migratoryType, type); 
 			out = "El registro fue exitoso";
 		}

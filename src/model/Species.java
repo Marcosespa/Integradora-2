@@ -67,7 +67,7 @@ public class Species
 	{
 		return migratoryType;
 	}
-	public int getType()
+	public String getType()
 	{
 		return type;
 	}
@@ -85,15 +85,17 @@ public class Species
 	{
 		this.migratoryType = migratoryType;
 	}
-	public void setType(int type)
+	public void setType(String type)
 	{
 		this.type = type;
 	}
 
 
 	// toString()
+	/** 
 	public String toString()
 	{
 		return "\n Name: "+this.getName()+"\n ScientificZone: "+this.scientificName+"\n migratoryType:"+this.getMigratoryType+"\n Type:"+this.getType;
 	}
+	*/
 }

@@ -1,6 +1,5 @@
 package ui;
 import java.util.Scanner;
-//import model.Wetland;
 
 
 import model.WetlandController;
@@ -20,7 +19,7 @@ public class MainSystem{
 	/**
 	 * store es la conexiOn con la clase Shop en el paquete model
 	 */
-	private WetlandController wetland;
+	private WetlandController wetland = new WetlandController();
 	/**
 	 * sc es el objeto que permite leer informaciOn digitada por el usuario
 	 */
@@ -41,8 +40,6 @@ public class MainSystem{
 	public static void main(String [] args) {
 		
 		System.out.println("Iniciando la aplicación");
-		
-		
         int option = 0;
         MainSystem myMain = new MainSystem();
 
@@ -108,7 +105,6 @@ public class MainSystem{
 
 		if(wetland.hasSpace()==true){
 
-		
 			System.out.println("Creating the Wetland");
 
 			String name,urlPicture, nameOfTheZone;
@@ -117,6 +113,7 @@ public class MainSystem{
 			boolean protection;
 
 			System.out.println("Please enter the name of the wetland");
+			sc.nextLine();
 			name= sc.nextLine();
 			
 			System.out.println("Please enter the location of the wetland \n 1.)urban \n 2.)rural");
@@ -139,6 +136,7 @@ public class MainSystem{
 				protection=false;
 			}
 			System.out.println("Please enter the name of the zone");
+			sc.nextLine();
 			nameOfTheZone= sc.nextLine();
 
 			// Se crea el Wetland
@@ -154,10 +152,18 @@ public class MainSystem{
 
 		System.out.println("Creating the species");
 
-		String wetlandName,name, scientificName, migratoryType ,type;
+		System.out.println(wetland.stringWetland());
+
+
 		
+
+		String wetlandName,name, scientificName, migratoryType ,type;
+		int a;
+		type="";
+
 		System.out.println("Please enter the name of the Wetland you are going to add the species");
 		wetlandName= sc.nextLine();
+		sc.nextLine();
 
 		System.out.println("Please enter the name of the species");
 		name= sc.nextLine();
@@ -165,13 +171,45 @@ public class MainSystem{
 		System.out.println("Please enter the scientific name of the species");
 		scientificName= sc.nextLine();
 		
-		System.out.println("Please enter the migratory type of the species");
+		System.out.println("Please enter the if it's a migratory type of the species \n 1.)Yes \n 2.)No ");
 		migratoryType= sc.nextLine();
-
-		System.out.println("Please enter the type of the species");
-		type= sc.nextLine();
-
-		System.out.println(wetland.addSpecie2Wetland(wetlandName, name, scientificName,migratoryType, type));
+		boolean flag = false;		
+		while (flag==false){
+		System.out.println("Please enter the type of the species"+ 
+							"1.) Terrestrial flora"+
+							"2.) Aquatic flora"+
+							"3.) Bird "+
+							"4.) Mammal"+
+							"5.) Aquatic"
+							);
+		a= sc.nextInt();
+			switch(a){
+				case 1:
+					type="Terrestrial flora";
+					flag=true;
+					break;
+				case 2: 
+					type="Aquatic flora";
+					flag=true;
+					break;
+				case 3:
+					type="Bird";
+					flag=true;
+					break;
+				case 4:
+					type="Mammal";
+					flag=true;
+					break;
+				case 5:
+					type="Aquatic";
+					flag=true;
+					break;
+				default:
+				flag=false;	
+			}
+			System.out.println(wetland.addSpecie2Wetland(wetlandName, name, scientificName,migratoryType, type));
+	
+		}
 
 	}
 	
@@ -180,6 +218,8 @@ public class MainSystem{
 
 		String manager,description;
 		double cost;
+		System.out.println("Please choice the option of the event you want to register \1.) ");
+
 
 		System.out.println("Please enter the name of the manager of the event");
 		manager= sc.nextLine();
