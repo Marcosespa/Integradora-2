@@ -48,15 +48,15 @@ public class EnvoirmentalManagment
 	}
 
 	// Accessors
-	public String getMaintance()
+	public int getMaintance()
 	{
 		return maintance;
 	}
-	public String getConservation()
+	public int getConservation()
 	{
 		return conservation;
 	}
-	public String getRestoration()
+	public int getRestoration()
 	{
 		return restoration;
 	}

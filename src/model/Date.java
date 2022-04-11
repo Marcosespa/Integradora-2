@@ -1,5 +1,7 @@
 package model;
 
+import javax.print.DocFlavor.STRING;
+
 public class Date
 {
 	// Attributes
@@ -51,7 +53,7 @@ public class Date
 	{
 		return day;
 	}
-	public Double getMonth()
+	public String getMonth()
 	{
 		return month;
 	}

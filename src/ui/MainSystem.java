@@ -119,7 +119,7 @@ public class MainSystem{
 			System.out.println("Please enter the location of the wetland \n 1.)urban \n 2.)rural");
 			locationZone= sc.nextInt();
 			
-			System.out.println("Please enter the type of the wetland \n 1) Public \n 2.)Private");
+			System.out.println("Please enter the type of the wetland \n 1.) Public \n 2.)Private");
 			type= sc.nextInt();
 
 			System.out.println("Please enter the size of the wetland");
@@ -128,16 +128,24 @@ public class MainSystem{
 			System.out.println("Please enter the URL of the wetland picture");
 			urlPicture= sc.nextLine();
 
-			System.out.println("Define the type of protection as a boolean 1.Protected 2.)Not Protected");
+			System.out.println("Define the type of protection as a boolean \n 1.) Protected \n 2.) Not Protected");
 			int d=sc.nextInt();
 			if(d==1){
 				protection=true;
 			}else{
 				protection=false;
 			}
-			System.out.println("Please enter the name of the zone");
-			sc.nextLine();
-			nameOfTheZone= sc.nextLine();
+
+			if(locationZone==1){
+				System.out.println("Please enter the name of the neighborhood");
+				sc.nextLine();
+				nameOfTheZone= sc.nextLine();				
+			}else{
+				System.out.println("Please enter the name of the corregimiento ");
+				sc.nextLine();
+				nameOfTheZone= sc.nextLine();					
+			}
+
 
 			// Se crea el Wetland
 			System.out.println(wetland.addWetland(name, locationZone, type, size, urlPicture,protection, nameOfTheZone));
@@ -155,15 +163,13 @@ public class MainSystem{
 		System.out.println(wetland.stringWetland());
 
 
-		
-
 		String wetlandName,name, scientificName, migratoryType ,type;
 		int a;
 		type="";
 
 		System.out.println("Please enter the name of the Wetland you are going to add the species");
-		wetlandName= sc.nextLine();
 		sc.nextLine();
+		wetlandName= sc.nextLine();
 
 		System.out.println("Please enter the name of the species");
 		name= sc.nextLine();
@@ -210,6 +216,8 @@ public class MainSystem{
 			System.out.println(wetland.addSpecie2Wetland(wetlandName, name, scientificName,migratoryType, type));
 	
 		}
+		System.out.println(wetland.stringSpecies());
+
 
 	}
 	
@@ -218,7 +226,7 @@ public class MainSystem{
 
 		String manager,description;
 		double cost;
-		System.out.println("Please choice the option of the event you want to register \1.) ");
+		String day,month,year;
 
 
 		System.out.println("Please enter the name of the manager of the event");
@@ -228,7 +236,38 @@ public class MainSystem{
 		System.out.println("Please enter the name of the description of the event");
 		description= sc.nextLine();
 
+		System.out.println("Please enter the day of the event");
+		day=sc.nextLine();
+		System.out.println("Please enter the month of the event");
+		month=sc.nextLine();	
+		System.out.println("Please enter the year of the event");
+		year=sc.nextLine();		
+
 	//	Wetland.addWetland(name, locationZone,type, size, urlPicture, nameOfTheZone);
 	}
 
+	public void envoirmentalManagment(){
+		System.out.println("Making the envoirmental Managment plan ");
+		String event="";
+		
+
+		System.out.println("Please choice the option of maintenance you want to register" +
+			"\n 1.) Restoration"+
+			"\n 2.) Maintenance"+
+			"\n 3.) Conservation)") ;
+		int decision= sc.nextInt();	
+
+		switch(decision){
+			case 1:
+				event="Restoration";
+			case 2:
+				event="Maintenance";
+			case 3: 
+				event="Conservation";
+
+		}	
+		
+		System.out.println("Please chose the percentaje of compliance");
+		
+	}
 }		

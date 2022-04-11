@@ -32,7 +32,18 @@ public class Wetland
 	private String nameOfTheZone;
 
     public  Species[] species;
+	
 	public static final int MAX_SPECIES = 80;
+
+	public  Event[] event;
+	public static final int MAX_EVENTS = 80;
+
+	public  EnvoirmentalManagment[] envoirmentalmanagments;
+	public static final int MAX_EM = 80;
+
+
+
+
 
 	
 
@@ -153,7 +164,8 @@ public class Wetland
 		"\n Size:"+this.getSize()+
 		"\n Url picture"+this.getUrlPicture()+
 		"\n Protection"+ this.getProtection()+
-		"\n Name of the zone"+this.getNameOfTheZone();
+		"\n Name of the zone"+this.getNameOfTheZone()+
+		"\n";
 	}
 	
 
@@ -184,7 +196,19 @@ public class Wetland
 		}
 		return out;
 	}	
+	public String stringAllSpecies(){ //IMPRIME LOS HUMEDALES CREADOS
+		String out="";
 
+		for(int i=0; i<MAX_SPECIES; i++){
+			if(species[i]!=null){
+				out+=species[i].toStringSpecies();
+			}
+		}
+		if(out.equals("")){
+			out="There's not species registred";
+		}
+		return out;
+	}
 
 	
 	

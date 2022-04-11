@@ -55,9 +55,9 @@ public class WetlandController{
                 wetlands[i].addSpecie(name, scientificName, migratoryType, type);
                 out="The specie "+name+" was successfully registered in the wetland "+wetlandName;
             }else{
-                control=false;
                 out="The register was not successful because the wetland "+ wetlandName+" doesn't exist";
-            }
+                control=false;
+			}
         }
         return out;
     }
@@ -71,8 +71,11 @@ public class WetlandController{
 		return out;
 	}
 
-
-
+	public String stringSpecies(){ //IMPRIME LOS HUMEDALES CREADOS
+		String out="";
+		out=wetlands[0].stringAllSpecies();
+		return out;
+	}
 
 
 

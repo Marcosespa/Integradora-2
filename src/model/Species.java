@@ -21,15 +21,7 @@ public class Species
 	private String type;
 
 	// Constructor without parameters
-	/*
-	public Species()
-	{
-		this.name = "NoName";
-		this.scientificZone = "NoScientificZone";
-		this.migratoryType = "NoMigratoryType";
-		this.type = "";
-	}
-	*/
+
 	/**
 	* Descripción: El metodo constructor va a crear los objetos de tipo Species<br>
 	* <b> pre:</b> La variable name deben estar declarada</br>
@@ -92,10 +84,14 @@ public class Species
 
 
 	// toString()
-	/** 
-	public String toString()
+	
+	public String toStringSpecies()
 	{
-		return "\n Name: "+this.getName()+"\n ScientificZone: "+this.scientificName+"\n migratoryType:"+this.getMigratoryType+"\n Type:"+this.getType;
+		return "\n Name: "+this.getName()+
+		"\n ScientificZone: "+this.getScientificName()+
+		"\n migratoryType:"+this.getMigratoryType()+
+		"\n Type:"+this.getType()+
+		"\n";
 	}
-	*/
+	
 }
