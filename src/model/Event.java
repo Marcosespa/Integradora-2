@@ -16,16 +16,7 @@ public class Event
 	*/	
 	private String description;
 
-	// Constructor without parameters
-	/*
-	public Event()
-	{
-		this.manager = "NoManager";
-		this.cost = "NoCost";
-		this.description = "NoDescription";
-	}
-	*/
-
+	private Date date;
 	/**
 	* Descripción: El metodo constructor va a crear los objetos de tipo Events<br>
 	* <b> pre:</b> La variable manager deben estar declarada</br>
@@ -38,13 +29,13 @@ public class Event
 	* @param cost double, Debe ser inicializada 
 	* @param description String, Debe ser inicializada 
 	*/	
-
 	// Constructor with parameters
-	public Event (String manager, double cost, String description)
+	public Event (String manager, double cost, String description, Date date)
 	{
 		this.manager = manager;
 		this.cost = cost;
 		this.description = description;
+		this.date=date;
 	}
 
 	// Accessors
@@ -65,8 +56,7 @@ public class Event
 	public void setManager(String manager)
 	{
 		this.manager = manager;
-	}
-	
+	}	
 	public void setCost(double cost)
 	{
 		this.cost = cost;
@@ -77,11 +67,13 @@ public class Event
 		this.description = description;	
 	}
 
-	/*
+	
 	// toString()
 	public String toString()
 	{
-		return "\n Name: "+this.getName()+"\n ScientificZone: "+this.getScientificZone+"\n migratoryType:"+this.getMigratoryType+"\n Type:"+this.getType;
+		return "\n The manager of the event it's: "+this.getManager()+
+		"\n The cost of the event it's: "+this.getCost()+
+		"\n The description of the event it's: "+this.getDescription();	
 	}
-	*/
+	
 }

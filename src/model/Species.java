@@ -87,10 +87,10 @@ public class Species
 	
 	public String toStringSpecies()
 	{
-		return "\n Name: "+this.getName()+
-		"\n ScientificZone: "+this.getScientificName()+
-		"\n migratoryType:"+this.getMigratoryType()+
-		"\n Type:"+this.getType()+
+		return "\n Normal name: "+this.getName()+
+		"\n Scientific Zone: "+this.getScientificName()+
+		"\n Migratory Type: "+this.getMigratoryType()+
+		"\n Type: "+this.getType()+
 		"\n";
 	}
 	

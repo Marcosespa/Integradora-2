@@ -18,15 +18,7 @@ public class Date
 	*/		
 	private String year;
 
-	// Constructor without parameters
-	/*
-	public Date()
-	{
-		this.day = "NoDay";
-		this.month = "NoCost";
-		this.year = "NoDescription";
-	}
-	*/
+
 	/**
 	* Descripción: El metodo constructor va a crear los objetos de tipo Date<br>
 	* <b> pre:</b> La variable day deben estar declarada</br>
@@ -40,7 +32,6 @@ public class Date
 	* @param year String, Debe ser inicializada 	
 	*/	
 
-	// Constructor with parameters
 	public Date (String day, String month, String year)
 	{
 		this.day = day;
@@ -67,22 +58,24 @@ public class Date
 	{
 		this.day = day;
 	}
-	
 	public void setMonth (String month)
 	{
 		this.month = month;
 
-	}	
+	}		
 	public void setYear(String year)
 	{
 		this.year = year;	
 	}
 
-	/*
+	
 	// toString()
 	public String toString()
 	{
-		return "\n Name: "+this.getName()+"\n ScientificZone: "+this.getScientificZone+"\n migratoryType:"+this.getMigratoryType+"\n Type:"+this.getType;
+		return "\n The day: "+this.getDay()+
+		" \n The month: "+this.getMonth()+
+		" \n The year: "+this.getYear()+
+		"\n";
 	}
-	*/
+	
 }

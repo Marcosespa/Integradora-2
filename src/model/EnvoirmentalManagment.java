@@ -3,28 +3,20 @@ package model;
 public class EnvoirmentalManagment
 {
 	// Attributes
-	/**
-	* Descripción: This variable it's going to save the type of activity in the Wetland</br>
-	*/	
-	private int maintance;
-	/**
-	* Descripción: This variable it's going to save the type of activity in the Wetland</br>
-	*/	
-	private int conservation;
-	/**
-	* Descripción: This variable it's going to save the type of activity in the Wetland</br>
-	*/	
-	private int restoration;
 
-	// Constructor without parameters
-	/*
-	public EnvoirmentalManagment()
-	{
-		this.maintance = "NoMaintance";
-		this.conservation = "NoConservationData";
-		this.restoration = "NoRestoration";
-	}
-	*/
+	/**
+	* Descripción: This variable it's going to save the type of plan in the Wetland</br>
+	*/	
+	private String typePlan;
+	/**
+	* Descripción: This variable it's going to save the type of Percentaje of compliance in the Wetland</br>
+	*/		
+	private double percentajePlan;
+	/**
+	* Descripción: This variable it's going to allow to save date's in the Envoirmental Managment</br>
+	*/	
+	private Date date;
+
 
 	/**
 	* Descripción: El metodo constructor va a crear los objetos de tipo EnvoirmentalManagment<br>
@@ -40,49 +32,56 @@ public class EnvoirmentalManagment
 	*/	
 
 	// Constructor with parameters
-	public EnvoirmentalManagment (int maintance, int conservation, int restoration)
+	public EnvoirmentalManagment (String typePlan, double percentajePlan,Date date)
 	{
-		this.maintance = maintance;
-		this.conservation = conservation;
-		this.restoration = restoration;
+		this.typePlan=typePlan;
+		this.percentajePlan=percentajePlan;
+		this.date=date;
 	}
 
 	// Accessors
-	public int getMaintance()
-	{
-		return maintance;
-	}
-	public int getConservation()
-	{
-		return conservation;
-	}
-	public int getRestoration()
-	{
-		return restoration;
-	}
 
-	// Mutators
-	public void setMaintance(int maintance)
-	{
-		this.maintance = maintance;
+    /**
+     * @return double return the percentajePlan
+     */
+    public double getPercentajePlan() {
+        return percentajePlan;
+    }	
+	/**
+     * @param percentajePlan the percentajePlan to set
+     */
+    public void setPercentajePlan(double percentajePlan) {
+        this.percentajePlan = percentajePlan;
+    }
+    /**
+     * @return String return the typePlan
+     */
+    public String getTypePlan() {
+        return typePlan;
+    }
 
-	}
-	
-	public void setScientificZone(int conservation)
-	{
-		this.conservation = conservation;
+    /**
+     * @param typePlan the typePlan to set
+     */
+    public void setTypePlan(String typePlan) {
+        this.typePlan = typePlan;
+    }
 
-	}	
-	public void setRestoration(int restoration)
-	{
-		this.restoration = restoration;	
-	}
 
-	/*
 	// toString()
-	public String toString()
+	public String toStringEM()
 	{
-		return "\n Name: "+this.getName()+"\n ScientificZone: "+this.getScientificZone+"\n migratoryType:"+this.getMigratoryType+"\n Type:"+this.getType;
+		return "\n The type of maintence it's : "+this.getTypePlan()+
+		"\n the percentaje of compliance : "+this.getPercentajePlan()+
+		"\n the date it's:"+date.toString();
 	}
-	*/
+
+
+
+
+
+
+
+
+
 }

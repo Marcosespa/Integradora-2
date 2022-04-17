@@ -30,15 +30,31 @@ public class Wetland
 	* Descripción: This variable it's going to save the name of the zone with the location of the Wetland </br>
 	*/
 	private String nameOfTheZone;
-
-    public  Species[] species;
+	// ARREGLOS Y CANTIDADES MAXIMAS
 	
+	/**
+	* Descripción: This array it's going to save the species of the Wetland </br>
+	*/
+    public  Species[] species;
+	/**
+	* Descripción: This variable it's going to maximount of species that can be registred in the array </br>
+	*/	
 	public static final int MAX_SPECIES = 80;
-
+	/**
+	* Descripción: This array it's going to save the Event's of the Wetland </br>
+	*/	
 	public  Event[] event;
+	/**
+	* Descripción: This variable it's going to save the maximount of events that can be registred in the array </br>
+	*/		
 	public static final int MAX_EVENTS = 80;
-
-	public  EnvoirmentalManagment[] envoirmentalmanagments;
+	/**
+	* Descripción: This array it's going to save the Envoirmental managments of the Wetland </br>
+	*/		
+	public  EnvoirmentalManagment[] envoirmentalmanagment;
+	/**
+	* Descripción: This variable it's going to save the maximount of Envoirmental plans that can be registred in the array </br>
+	*/	
 	public static final int MAX_EM = 80;
 
 
@@ -87,8 +103,8 @@ public class Wetland
 		this.protection=protection;
 		this.nameOfTheZone=nameOfTheZone;
 		species= new Species [MAX_SPECIES]; 
-
-
+		event = new Event[MAX_EVENTS];
+		envoirmentalmanagment = new EnvoirmentalManagment[MAX_EM];
 	}
 
 	// Accessors
@@ -160,16 +176,15 @@ public class Wetland
 	{
 		return "\n The name: "+this.getName()+
 		" \n Location Zone: "+this.getLocationZone()+
-		"\n type:"+this.getType()+
-		"\n Size:"+this.getSize()+
-		"\n Url picture"+this.getUrlPicture()+
-		"\n Protection"+ this.getProtection()+
-		"\n Name of the zone"+this.getNameOfTheZone()+
+		"\n type: "+this.getType()+
+		"\n Size: "+this.getSize()+
+		"\n Url picture: "+this.getUrlPicture()+
+		"\n Protection: "+ this.getProtection()+
+		"\n Name of the zone: "+this.getNameOfTheZone()+
 		"\n";
-	}
-	
+	}	
 
-
+	//EMPTY POSITIO - ADD SPECIES - STRING SPECIES
 	public int getEmptyPositionSpecies(){
         boolean emptyPosition = false;
 		int position = -1;
@@ -196,7 +211,7 @@ public class Wetland
 		}
 		return out;
 	}	
-	public String stringAllSpecies(){ //IMPRIME LOS HUMEDALES CREADOS
+	public String stringAllSpecies(){ //IMPRIME LAS ESPECIES CREADAS
 		String out="";
 
 		for(int i=0; i<MAX_SPECIES; i++){
@@ -210,6 +225,133 @@ public class Wetland
 		return out;
 	}
 
-	
-	
+	// EMPTY POSITION - ADD EVENTS  
+	public int getEmptyPositionEvent(){
+        boolean emptyPosition = false;
+		int position = -1;
+		for (int i=0; i<MAX_EVENTS && !emptyPosition; i++){
+			if(event[i] == null){
+				emptyPosition = true;
+				position = i;
+			}
+		}
+		return position;
+    }	
+    public String addEvent(String manager, Double cost, String description,Date date1) {
+		String out = "";		
+		int emptyPos=getEmptyPositionEvent(); //busco la primera posición vacía
+		// si el arreglo está lleno?
+		out = "Entra al metodo";
+		if(emptyPos == -1){ // está lleno
+			//no se puede agregar
+			out = "El arreglo está lleno";
+		}else{ //Si no está lleno
+			event[emptyPos]= new Event (manager, cost, description, date1); 
+			out = "El registro fue exitoso";
+		}
+		return out;
+	}		
+	//  EMPTY POSITION - ADD ENVOIRMENTAL PLAN
+	public int getEmptyPositionEnvoirmentalPlan(){
+        boolean emptyPosition = false;
+		int position = -1;
+		for (int i=0; i<MAX_EVENTS && !emptyPosition; i++){
+			if(event[i] == null){
+				emptyPosition = true;
+				position = i;
+			}
+		}
+		return position;
+    }		
+    public String addEnvoirmentalPlan(String typeEvent,double percentaje, Date date1) {
+		String out = "";		
+		int emptyPos=getEmptyPositionEnvoirmentalPlan(); //busco la primera posición vacía
+		// si el arreglo está lleno?
+		out = "Entra al metodo";
+		if(emptyPos == -1){ // está lleno
+			//no se puede agregar
+			out = "El arreglo está lleno";
+		}else{ //Si no está lleno
+			envoirmentalmanagment[emptyPos]= new EnvoirmentalManagment (typeEvent, percentaje, date1); 
+			out = "El registro fue exitoso";
+		}
+		return out;
+	}		
+
+
+    public String stringMaintanceWetlands(){ // TRAE EL STRING DE ENVOIRMENTAL MANAGMWENT
+        String out = "";
+        for(int i=0;i<MAX_EM && envoirmentalmanagment[i]!=null;i++){
+            out += envoirmentalmanagment[i].toStringEM();
+        }
+        return out;
+    }	
+ 	// LA CANTIDAD DE FLORA POR CADA WETLAND
+	public int amountOfFlora(){
+		int total=0;
+        for(int i=0;i<MAX_SPECIES && species[i]!=null;i++){
+            if(species[i].getType().equalsIgnoreCase("Terrestrial flora") || species[i].getType().equalsIgnoreCase("Aquatic flora"))
+			{
+                total++;
+            }
+        }
+        return total;
+    }
+
+	// LA CANTIDAD DE ESPECIES POR CADA WETLAND
+	public String amountOfEverySpecies(){
+		int tf=0;
+		int af=0;
+		int bd=0;
+		int mml=0;
+		int aq=0;
+		String out="";
+        for(int i=0;i<MAX_SPECIES && species[i]!=null;i++){
+
+            if (species[i].getType().equalsIgnoreCase("Terrestrial flora")) {
+				tf++;
+			}
+			if (species[i].getType().equalsIgnoreCase("Aquatic flora")) {
+				af++;
+			}
+			if (species[i].getType().equalsIgnoreCase("Bird")){
+				bd++;
+			}
+			if (species[i].getType().equalsIgnoreCase("Mammal")){
+				mml++;
+			} 
+			if (species[i].getType().equalsIgnoreCase("Aquatic")){
+				aq++;
+			}
+        }
+		out+= "\n The final amount of species for type it's "+
+			"\n Terrestrial flora: "+ tf +
+			"\n Aquatic flora: "+af+
+			"\n Bird: "+bd+
+			"\n Mammal: "+mml+
+			"\n Aquatic: "+aq;
+
+        return out;
+    }	
+
+	public int amountOfAnimals(){ // LA CANTIDAD DE ANIMALES POR CADA WETLAND
+		int total=0;
+        for(int i=0;i<MAX_SPECIES && species[i]!=null;i++){
+            if(species[i].getType().equalsIgnoreCase("Bird") || species[i].getType().equalsIgnoreCase("Mammal") || species[i].getType().equalsIgnoreCase("Aquatic"))
+			{
+                total++;
+            }
+        }
+        return total;		
+	}
+
+	public boolean searchSpecies(String name){
+	boolean a=false;
+        for(int i=0;i<MAX_SPECIES && species[i]!=null;i++){
+			if(species[i].getName().equalsIgnoreCase(name)){
+				a=true;
+			}
+		}
+	return a;
+	}
 }
