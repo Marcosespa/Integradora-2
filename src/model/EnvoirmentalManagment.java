@@ -30,10 +30,7 @@ public class EnvoirmentalManagment
 	* @param conservation String, Debe ser inicializada 
 	* @param restoration String, Debe ser inicializada 
 	*/	
-
-	// Constructor with parameters
-	public EnvoirmentalManagment (String typePlan, double percentajePlan,Date date)
-	{
+	public EnvoirmentalManagment (String typePlan, double percentajePlan,Date date){	// Constructor with parameters
 		this.typePlan=typePlan;
 		this.percentajePlan=percentajePlan;
 		this.date=date;

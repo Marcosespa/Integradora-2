@@ -14,13 +14,24 @@ public class WetlandController{
 	*/	
 	private int indexWetlands;
 
-
+	/** 
+	* Descripción: The constructor of the class WetlandController <br>
+	* <b> pre:</b>  weltands has to be declared and MAX_WETLANDS has to be incializated <br>
+	* <b> pos: wetlands are inicializated with the size of MAX_WETLANDS <b> 
+	*/
 	public WetlandController ()
 	{
 		wetlands= new Wetland [MAX_WETLANDS]; 
 	}
-	// REVISA SI EL HUMEDAL TIENE ESPACIO PARA AGREGARLO
-	public boolean hasSpace(){
+
+	/** 
+	* Descripción: search if the array of wetlands has an empty position to save a new wetland and returns a boolean to let the user 
+	in the main register the new wetlands <br>
+	* <b> pre:</b> indexWetlands has to be declared </br>
+	* <b> pos:</b> indexWetlands it's inicializated
+	* @return emptyPosition boolean, define if there it's space in the array wetlands
+	*/
+	public boolean hasSpace(){	// REVISA SI EL HUMEDAL TIENE ESPACIO PARA AGREGARLO
 		indexWetlands=-1;
 		boolean emptyPosition= false;
 		for (int i=0; i<MAX_WETLANDS && !emptyPosition; i++){
@@ -31,8 +42,21 @@ public class WetlandController{
 		}
 		return emptyPosition;
 	}
-	// AÑADIR UN HUMEDAL
-	public String addWetland(String name, int locationZone, int type,Double size, String urlPicture,Boolean protection, String nameOfTheZone) {
+	
+	/** 
+	* Descripción: This methods it's called if has space it's true and create a wetland in the array wetlands, if the register was sucefully 
+	return an String <br>
+	* <b> pre:</b> indexWetlands has to be incializated </br>
+	* @param name String, it's inicializated in MainSystem
+	* @param locationZone int, it's inicializated in MainSystem 
+	* @param type int, it's inicializated in MainSystem
+	* @param size Double, it's inicializated in MainSystem 
+	* @param urlPicutre String, it's inicializated in MainSystem
+	* @param protection Boolean, it's inicializated in MainSystem
+	* @param nameOfTheZone String, it's inicializated in MainSystem
+	* @return out String, returns the message if the register was succesful or not 
+	*/
+	public String addWetland(String name, int locationZone, int type,Double size, String urlPicture,Boolean protection, String nameOfTheZone) {	// AÑADIR UN HUMEDAL
 		String out = "";
 		int emptyPos=indexWetlands; //busco la primera posición vacía
 
@@ -42,15 +66,25 @@ public class WetlandController{
 		if(emptyPos == -1){ // está lleno
 
 			//no se puede agregar
-			out = "El arreglo está lleno";
+			out = "The array is full";
 		}else{ //Si no está lleno
 			wetlands[indexWetlands] =  new Wetland (name, locationZone,type, size, urlPicture, protection, nameOfTheZone);
-			out = "El registro fue exitoso";
+			out = "Registration was successful";
 		}
 		return out;
 	}
-    //AÑADIR UNA ESPECIE 
-    public String addSpecie2Wetland(String wetlandName, String name, String scientificName, String migratoryType, String type) {
+  
+	/** 
+	* Descripción: This method valide if the weltand exist and if exist add the specie to the wetland in first 
+	free position and if does't exist returns an String warning <br>
+	* @param wetlandName String, it has to be inicializated 
+	* @param name String, it has to be inicializated 
+	* @param scientificName String, it has to be inicializated 
+	* @param migratoryType String, it has to be inicializated 
+	* @param type String, it has to be inicializated
+	* @return out String, returns a String with the information if the register was succesful or not 
+	*/
+	public String addSpecie2Wetland(String wetlandName, String name, String scientificName, String migratoryType, String type) {	//AÑADIR UNA ESPECIE 
         String out="";
         boolean control=true;
 
@@ -67,6 +101,10 @@ public class WetlandController{
         return out;
     }
 
+	/** 
+	* Descripción: This string returns the wetlands created <br>
+	* @return out String, returns the Tostring of the wetland 
+	*/	
 	public String stringWetland(){ //IMPRIME LOS HUMEDALES CREADOS
 		String out="";
 		for(int i=0; i<MAX_WETLANDS && wetlands[i]!=null; i++){
@@ -75,14 +113,31 @@ public class WetlandController{
 		
 		return out;
 	}
-
+	
+	/** 
+	* Descripción: This string returns the Species created <br>
+	* @return out String, returns the Tostring of the species 
+	*/	
 	public String stringSpecies(){ //IMPRIME LOS ESPECIES CREADOS
 		String out="";
 		out=wetlands[0].stringAllSpecies();
 		return out;
 	}
-	//AÑADIR EVENTO AL WETLAND
-	public String addEvent2Wetland(String wetlandselected,String manager, Double cost, String description, String day, String month, String year) {
+
+	/** 
+	* Descripción: This method valide if the weltand exist and if exist add the event to the wetland in first 
+	free position and if does't exist returns an String warning <br>
+	* @param wetlandselected String, it has to be inicializated 
+	* @param manager String, it has to be inicializated 
+	* @param cost Double, it has to be inicializated 
+	* @param description String, it has to be inicializated 
+	* @param day String, it has to be inicializated
+	* @param month String, it has to be inicializated
+	* @param year String, it has to be inicializated
+	* @return out String, returns a String with the information if the register was succesful or not 
+	*/
+	public String addEvent2Wetland(String wetlandselected,String manager, Double cost, String description, String day, String month, String year) {	//AÑADIR EVENTO AL WETLAND
+
 		String out="";
 		Date date1 = new Date(day, month,year);
 
@@ -101,8 +156,19 @@ public class WetlandController{
         }
         return out;		
 	}
-	//AÑADIR MANEJO AMBIENTAL AL WETLAND
-	public String addEnvoirmentalPlan2Wetland(String wetlandselected,String typeEvent, Double percentaje, String day, String month, String year) {
+	
+	/** 
+	* Descripción: This method valide if the weltand exist and if exist add the Envoirmental plan to the wetland in first 
+	free position and if does't exist returns an String warning <br>
+	* @param wetlandselected String, it has to be inicializated 
+	* @param typeEvent String, it has to be inicializated 
+	* @param percentaje Double, it has to be inicializated 
+	* @param day String, it has to be inicializated
+	* @param month String, it has to be inicializated
+	* @param year String, it has to be inicializated
+	* @return out String, returns a String with the information if the register was succesful or not 
+	*/
+	public String addEnvoirmentalPlan2Wetland(String wetlandselected,String typeEvent, Double percentaje, String day, String month, String year) { 	//AÑADIR MANEJO AMBIENTAL AL WETLAND
 		String out="";
 		Date date1 = new Date(day, month,year);
 
@@ -122,6 +188,10 @@ public class WetlandController{
 
 	}
 
+	/** 
+	* Descripción: This string returns the name of the Wetland and the Maintance information <br>
+	* @return out String, returns the information of the wetland and the maintance 
+	*/	
     public String stringWetlandandMaintance(){  //IMPRIME LOS HUMEDALES CREADOS 
         String out = "";
         for(int i=0; i<MAX_WETLANDS && wetlands[i]!=null;i++){
@@ -132,8 +202,11 @@ public class WetlandController{
         return out;
     }
 
+	/** 
+	* Descripción: This method search the wetland with the less amount of flora<br>
+	* @return out String, returns the information of wetland and the amount of flora
+	*/	
 	public String lessFlora(){	// Busca la especie con la menor cantidad de flora
-
 		int index=0;
 		int menor;
 		String menorN;
@@ -157,6 +230,10 @@ public class WetlandController{
 	return out;
 	}
 	
+	/** 
+	* Descripción: This method search the wetland with the largest amount of animals <br>
+	* @return out String, returns the information of wetland and the amount of animals
+	*/	
 	public String moreSpecies(){ // Busca la especie con la menor cantidad de animales
 		int index=0;
 		int mayor;
@@ -182,7 +259,11 @@ public class WetlandController{
 	return out;		
 
 	}
-	
+
+	/** 
+	* Descripción: Returns the ToString of the wetland and the amount of every specie in that Wetland<br>
+	* @return out String, The information of the Weltand and the amount of every Specie in that wetland
+	*/
 	public String wetlandBySpecies(){ // Devuelve el string del humedal y la cantidad de especies en ese humedal
 	String out="";
 	for(int i=0; i<MAX_WETLANDS && wetlands[i]!=null; i++){
@@ -192,6 +273,11 @@ public class WetlandController{
 	return out;	
 	}
 
+	/** 
+	* Descripción: This method search the specie in the Wetland and returns an String with the name in the Wetland found</br>
+	* @param name String, It has to be inicializated
+	* @return out String, returns the information in wich wetland it's registred the specie  
+	*/	
 	public String searchSpeciesinWetland(String name){ // BUSCA LA ESPECIE EN EL WETLAND
 	String out="";
 	boolean a=true;

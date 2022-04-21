@@ -63,26 +63,9 @@ public class Wetland
 
 	
 
-	//Relaciones
-	/*
-	private Species SpeciesOfWetlan;
-
+	
 	/**
-	* Descripción: El metodo constructor va a crear los objetos de tipo wetland<br>
-	* <b> pre:</b> La variable name deben estar declarada</br>
-	* La variable locationZone deben estar declarada
-	* La variable type deben estar declarada
-	* La variable size deben estar declarada
-	* La variable urlPicture deben estar declarada
-	* La variable protection deben estar declarada
-	* La variable nameOfTheZone deben estar declarada
-	* <b> pos:</b> La variable name queda incializada
-	* La variable locationZone queda incializada
-	* La variable type queda incializada
-	* La variable size queda incializada
-	* La variable urlPicture queda incializada
-	* La variable protection queda incializada
-	* La variable nameOfTheZone queda incializada 
+	* Descripción: El metodo constructor va a crear los objetos de tipo wetland<br> 
 	* @param name String, Debe ser inicializada 
 	* @param locationZone int, Debe ser inicializada 
 	* @param type int, Debe ser inicializada 
@@ -107,30 +90,71 @@ public class Wetland
 		envoirmentalmanagment = new EnvoirmentalManagment[MAX_EM];
 	}
 
+
 	// Accessors
+    /**
+	* Description: the getName method returns the name .<br>
+	* <b> pre:</b> The variable "name" must be initialized.<br>
+	* @return name String, return the name of the Wetland.
+	*/	
 	public String getName()
 	{
 		return name;
 	}
+
+    /**
+	* Description: the getLocationZone method returns the locationZone. <br>
+	* <b> pre:</b> The variable "locationZone" must be initialized.<br>
+	* @return locationZone int, return the value of the LocationZone.
+	*/		
 	public int getLocationZone()
 	{
 		return locationZone;
 	}
+    /**
+	* Description: the getType method returns the type. <br>
+	* <b> pre:</b> The variable "type" must be initialized.<br>
+	* @return type int, return the value of the type.
+	*/	
 	public int getType()
 	{
 		return type;
 	}
+    
+	/**
+	* Description: the getSize method returns the size. <br>
+	* <b> pre:</b> The variable "size" must be initialized.<br>
+	* @return size double, return the value of the size.
+	*/		
 	public double getSize()
 	{
 		return size;
 	}
+
+	/**
+	* Description: the getUrlPicture method returns the urlPicture. <br>
+	* <b> pre:</b> The variable "urlPicture" must be initialized.<br>
+	* @return urlPicture String, return the value of the urlPicture.
+	*/	
 	public String getUrlPicture(){
 		return urlPicture;
 	}
+
+	/**
+	* Description: the getProtection method returns the protection. <br>
+	* <b> pre:</b> The variable "protection" must be initialized.<br>
+	* @return protection boolean, return the value of the protection.
+	*/	
 	public boolean getProtection()
 	{
 		return protection;
 	}
+	
+	/**
+	* Description: the getNameOfTheZone method returns the nameOfTheZone. <br>
+	* <b> pre:</b> The variable "nameOfTheZone" must be initialized.<br>
+	* @return nameOfTheZone String, return the value of the nameOfTheZone.
+	*/		
 	public String getNameOfTheZone()
 	{
 		return nameOfTheZone;
@@ -138,32 +162,79 @@ public class Wetland
 
 
 	// Mutators
-
+    /**
+	* Description: The setName method modifies variable name.<br>
+	* <b> pre:</b> The variable "name" must be declared.<br>
+	* <b> pos:</b> the variable "name" is modified.
+    * @param name String, name should be initialized.
+	*/
 	public void setName(String name)
 	{
 		this.name = name;
 	}
+
+    /**
+	* Description: The setLocationZone method modifies variable locationZone.<br>
+	* <b> pre:</b> The variable "locationZone" must be declared.<br>
+	* <b> pos:</b> the variable "locationZone" is modified.
+    * @param locationZone int, locationZone should be initialized.
+	*/
 	public void setLocationZone (int locationZone)
 	{		
 		this.locationZone = locationZone;
-	}	
+	}
+
+    /**
+	* Description: The setType method modifies variable locationZone.<br>
+	* <b> pre:</b> The variable "locationZone" must be declared.<br>
+	* <b> pos:</b> the variable "locationZone" is modified.
+    * @param locationZone int, locationZone should be initialized.
+	*/		
 	public void setType(int type)
 	{
 		this.type = type;
 
 	}
+
+    /**
+	* Description: The setSize method modifies variable size.<br>
+	* <b> pre:</b> The variable "size" must be declared.<br>
+	* <b> pos:</b> the variable "size" is modified.
+    * @param size double, size should be initialized.
+	*/		
 	public void setSize(double size)
 	{
 		this.size = size;	
 	}
+
+    /**
+	* Description: The setUrlPicture method modifies variable urlPicture.<br>
+	* <b> pre:</b> The variable "urlPicture" must be declared.<br>
+	* <b> pos:</b> the variable "urlPicture" is modified.
+    * @param urlPicture String, urlPicture should be initialized.
+	*/			
 	public void setUrlPicture(String urlPicture)
 	{
 		this.urlPicture=urlPicture;
 	}
+
+   /**
+	* Description: The setProtection method modifies variable protection.<br>
+	* <b> pre:</b> The variable "protection" must be declared.<br>
+	* <b> pos:</b> the variable "protection" is modified.
+    * @param protection boolean, protection should be initialized.
+	*/
 	public void setProtection(boolean protection)
 	{
 		this.protection=protection;
 	}
+
+   /**
+	* Description: The setNameOfTheZone method modifies variable nameOfTheZone.<br>
+	* <b> pre:</b> The variable "nameOfTheZone" must be declared.<br>
+	* <b> pos:</b> the variable "nameOfTheZone" is modified.
+    * @param nameOfTheZone String, nameOfTheZone should be initialized.
+	*/
 	public void setNameOfTheZone(String nameOfTheZone)
 	{
 		this.nameOfTheZone=nameOfTheZone;
@@ -171,7 +242,11 @@ public class Wetland
 
 	
 	// toString()
-	
+
+	/** 
+	* Descripción: This method print the info of the Wetland <br>
+	* @return String, has all the Get's of the wetland
+	*/
 	public  String toStringWetland()
 	{
 		return "\n The name: "+this.getName()+
@@ -184,8 +259,12 @@ public class Wetland
 		"\n";
 	}	
 
-	//EMPTY POSITIO - ADD SPECIES - STRING SPECIES
-	public int getEmptyPositionSpecies(){
+
+	/** 
+	* Descripción: This method get's the empty positions of the array of the species <br>
+	* @return position boolean, informacion sobre variable de retorno --> retorno
+	*/
+	public int getEmptyPositionSpecies(){	//EMPTY POSITIO - ADD SPECIES - STRING SPECIES
         boolean emptyPosition = false;
 		int position = -1;
 		for (int i=0; i<MAX_SPECIES && !emptyPosition; i++){
@@ -196,6 +275,7 @@ public class Wetland
 		}
 		return position;
     }
+
     public String addSpecie(String name, String scientificName, String migratoryType, String type) {
 		String out = "";		
 		int emptyPos=getEmptyPositionSpecies(); //busco la primera posición vacía
@@ -210,7 +290,8 @@ public class Wetland
 			out = "El registro fue exitoso";
 		}
 		return out;
-	}	
+	}
+
 	public String stringAllSpecies(){ //IMPRIME LAS ESPECIES CREADAS
 		String out="";
 

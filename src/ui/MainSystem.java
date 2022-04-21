@@ -13,31 +13,41 @@ javadoc src/ui/MainSystem.java -d doc/API/
 javadoc src/model/Date.java -d doc/API/
 */
 
+//PLANTILLA METODOS
+	/** 
+	* Descripción: ¿qué hace mi método? (concisa, un par de líneas)</br>
+	* <b> pre:</b> ¿cuáles son las condiciones sobre las variables globales? --> si hay una condición sobre var glob. </br>
+	* <b> pos:</b> ¿Cuales fueron los cambios sobre las variables globales? --> si ocurrio un cambio cn var glob.
+	* @param <nombre_par> <tipo>, condiciones sobre el parametro --> si tiene
+	* @return <nombre_var> <tipo>, informacion sobre variable de retorno --> retorno
+	*/
 
+/** 
+ * @author Marcosespi
+ * */
 
 public class MainSystem{
 
 	/**
-	 * store es la conexiOn con la clase Shop en el paquete model
+	 * wetland it's the conecction with the class MainSystem with the WetlandController in the model 
 	 */
-	private WetlandController wetland = new WetlandController();
+
+	 private WetlandController wetland = new WetlandController();
 	/**
 	 * sc es el objeto que permite leer informaciOn digitada por el usuario
 	 */
-
 	public Scanner sc;
-	/**
-	 * Constructor de la clase, no recibe prametros.  
-	 * El mEtodo inicializa el objeto lector 
-	 */
 
-	//private Wetland newWetland;
 	public static int option;
 
     public MainSystem(){
         sc = new Scanner(System.in);
     }	
-
+	/** 
+	* Descripción: The main method initializes the application and calls the menu method and the option chosen in the menu. <br>
+	* <b> pre:</b> option has to be declared </br>
+	* <b> pos:</b> option it's inicializted
+	*/
 	public static void main(String [] args) {
 		
 		System.out.println("Iniciando la aplicación");
@@ -51,7 +61,12 @@ public class MainSystem{
 		}while (option!=0);
 		
 	}	
-	public int showMenu() {
+	
+	/** 
+	* Descripción: My method displays the menu and asks the user to choose an option </br>
+	* @return option int, returns the option chosen by the user
+	*/
+	public int showMenu() {// MENU
 		int option=0;
 
 		System.out.println(
@@ -71,8 +86,11 @@ public class MainSystem{
 		return option;
 	}
 	
+	/** 
+	* Descripción: This method with the return of ShowMenu decide wich method has to be used <br>
+	* @param operation int, has to be initialized
+	*/	
 	public void executeOperation(int operation) {
-		
 		switch(operation) {
 		case 0:
 			System.out.println("Bye!");
@@ -112,6 +130,10 @@ public class MainSystem{
 		}
 	}
 
+	/** 
+	* Descripción: Create wetland works if the method hasSpace it's true means that has space, and ask the information of the wetland 
+	to be send to addWetland and create a Wetland in the array of Wetlands <br>
+	*/	
 	public void createWetland() {
 
 		if(wetland.hasSpace()==true){
@@ -167,6 +189,10 @@ public class MainSystem{
 
 	}
 
+	/** 
+	* Descripción: This method ask the information of the Specie that wants to be created and it's send to addSpecie2Wetland where it check if has space and
+	then procede to create species, ending the method with a print that show the species created <br>
+	*/
 	public void createSpecies() {
 
 		String wetlandName,name, scientificName, migratoryType ,type;
@@ -233,7 +259,11 @@ public class MainSystem{
 
 
 	}
-	
+
+	/** 
+	* Descripción: This method ask if wants to be created an event or a Maintance, if the option it's Maintance calls the method envoirmentalManagment
+	else ask the information to create and Event, and send it to addEvent2Wetland<br>
+	*/
 	public void wetlandEvent() {
 		System.out.println("Creating the Event");
 
@@ -273,7 +303,12 @@ public class MainSystem{
 		}
 
 	}
-
+	
+	/** 
+	* Descripción:This method works if the user choice in wetlandEvent the option of envoirmental managment.
+	It's showed all the Wetlands created and ask to select wich weltand want the envoirmental managment then ask
+	the information and it's send to addEnvoirmentalPlan2Wetland <br>
+	*/
 	public void envoirmentalManagment(){
 		System.out.println("Making the envoirmental Managment plan ");
 		String typeEvent, wetlandselected,day,month,year;
@@ -317,19 +352,28 @@ public class MainSystem{
 
 		System.out.println(wetland.addEnvoirmentalPlan2Wetland(wetlandselected ,typeEvent, percentaje,day, month, year));		
 	}
-
+	
+	/** 
+	* Descripción:This method shows the weltands and their information of maintence registred calling the method stringWetlandandMaintance<br>
+	*/
 	public void wetlandMaitance(){ // INFORMACION DE LOS WETLANDS CON SUS RESPECTIVOS MANTENIMIENTOS
 		System.out.println("This are the Wetlands with the information of their maintance \n");	
 		System.out.println(wetland.stringWetlandandMaintance());
-	
 	}
-
+	
+	/** 
+	* Descripción: Show the wetland with the less amount of flora calling the method lessFlora<br>
+	*/
 	public void wetlandWLessFlora(){ //EL HUMEDAL CON LA CANTIDAD MENOR DE FLORA
 		System.out.println("This is the with the least amount of flora \n");	
 		System.out.println(wetland.lessFlora());
 	}
 
-	public void findSpecies(){// TENGO DUDAS
+	/** 
+	* Descripción: Ask the name of the Species that want to be searched and call the method searchSpeciesinWetland with the 
+	parameter of the name returning the name of the Weltand if exist <br>
+	*/	
+	public void findSpecies(){
 		String name;
 		System.out.println("Please write the name of the species that want to be searched ");
 		sc.nextLine();
@@ -338,12 +382,18 @@ public class MainSystem{
 
 
 	}
-
+	
+	/** 
+	* Descripción: This method shows the information of the Wetland and the amount of species <br>
+	*/
 	public void wetlandAndSpecies(){ // WETLAND Y LA INFO DE CADA ESPECIE 
 		System.out.println("This are the Wetlands with the information of species \n");	
 		System.out.println(wetland.wetlandBySpecies());		
 	}
 
+	/** 
+	* Descripción: Show the wetland with the largest amount of animals calling the method moreSpecies<br>
+	*/
 	public void wetlandWMoreFlora(){// WETLAND CON LA MAYOR CANTIDA DE ANIMALES 
 		System.out.println("This is the wetland with the largest amount of flora \n");	
 		System.out.println(wetland.moreSpecies());		

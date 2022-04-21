@@ -31,38 +31,58 @@ public class Date
 	* @param month String, Debe ser inicializada 
 	* @param year String, Debe ser inicializada 	
 	*/	
-
-	public Date (String day, String month, String year)
-	{
+	public Date (String day, String month, String year){
 		this.day = day;
 		this.month = month;
 		this.year = year;
 	}
 
 	// Accessors
+
+    /**
+     * @return String return the day
+     */	
 	public String getDay()
 	{
 		return day;
 	}
+
+    /**
+     * @return String return the month
+     */	
 	public String getMonth()
 	{
 		return month;
 	}
+
+    /**
+     * @return String return the year
+     */	
 	public String getYear()
 	{
 		return year;
 	}
 
 	// Mutators
+	/**
+     * @param day the day to set
+     */
 	public void setDay(String day)
 	{
 		this.day = day;
 	}
+	
+	/**
+     * @param month the month to set
+     */	
 	public void setMonth (String month)
 	{
 		this.month = month;
-
 	}		
+	
+	/**
+     * @param year the year to set
+     */		
 	public void setYear(String year)
 	{
 		this.year = year;	
