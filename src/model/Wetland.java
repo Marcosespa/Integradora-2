@@ -74,7 +74,6 @@ public class Wetland
 	* @param protection urlPicture, Debe ser inicializada 
 	* @param nameOfTheZone urlPicture, Debe ser inicializada 
 	*/
-
 	// Constructor with parameters
 	public Wetland (String name, int locationZone, int type,double size,String urlPicture, boolean protection, String nameOfTheZone)
 	{
@@ -241,14 +240,12 @@ public class Wetland
 	}	
 
 	
-	// toString()
 
 	/** 
 	* Descripción: This method print the info of the Wetland <br>
 	* @return String, has all the Get's of the wetland
 	*/
-	public  String toStringWetland()
-	{
+	public  String toStringWetland(){	// toString
 		return "\n The name: "+this.getName()+
 		" \n Location Zone: "+this.getLocationZone()+
 		"\n type: "+this.getType()+
@@ -276,6 +273,7 @@ public class Wetland
 		return position;
     }
 
+
     public String addSpecie(String name, String scientificName, String migratoryType, String type) {
 		String out = "";		
 		int emptyPos=getEmptyPositionSpecies(); //busco la primera posición vacía
@@ -292,6 +290,7 @@ public class Wetland
 		return out;
 	}
 
+	
 	public String stringAllSpecies(){ //IMPRIME LAS ESPECIES CREADAS
 		String out="";
 
@@ -306,6 +305,8 @@ public class Wetland
 		return out;
 	}
 
+	
+	
 	// EMPTY POSITION - ADD EVENTS  
 	public int getEmptyPositionEvent(){
         boolean emptyPosition = false;
@@ -318,7 +319,9 @@ public class Wetland
 		}
 		return position;
     }	
-    public String addEvent(String manager, Double cost, String description,Date date1) {
+    
+	
+	public String addEvent(String manager, Double cost, String description,Date date1) {
 		String out = "";		
 		int emptyPos=getEmptyPositionEvent(); //busco la primera posición vacía
 		// si el arreglo está lleno?
@@ -332,6 +335,8 @@ public class Wetland
 		}
 		return out;
 	}		
+	
+	
 	//  EMPTY POSITION - ADD ENVOIRMENTAL PLAN
 	public int getEmptyPositionEnvoirmentalPlan(){
         boolean emptyPosition = false;
@@ -344,7 +349,9 @@ public class Wetland
 		}
 		return position;
     }		
-    public String addEnvoirmentalPlan(String typeEvent,double percentaje, Date date1) {
+    
+	
+	public String addEnvoirmentalPlan(String typeEvent,double percentaje, Date date1) {
 		String out = "";		
 		int emptyPos=getEmptyPositionEnvoirmentalPlan(); //busco la primera posición vacía
 		// si el arreglo está lleno?
@@ -367,8 +374,10 @@ public class Wetland
         }
         return out;
     }	
- 	// LA CANTIDAD DE FLORA POR CADA WETLAND
-	public int amountOfFlora(){
+ 	
+	
+
+	public int amountOfFlora(){	// LA CANTIDAD DE FLORA POR CADA WETLAND
 		int total=0;
         for(int i=0;i<MAX_SPECIES && species[i]!=null;i++){
             if(species[i].getType().equalsIgnoreCase("Terrestrial flora") || species[i].getType().equalsIgnoreCase("Aquatic flora"))
@@ -379,8 +388,9 @@ public class Wetland
         return total;
     }
 
-	// LA CANTIDAD DE ESPECIES POR CADA WETLAND
-	public String amountOfEverySpecies(){
+
+	
+	public String amountOfEverySpecies(){	// LA CANTIDAD DE ESPECIES POR CADA WETLAND
 		int tf=0;
 		int af=0;
 		int bd=0;
@@ -415,6 +425,7 @@ public class Wetland
         return out;
     }	
 
+	
 	public int amountOfAnimals(){ // LA CANTIDAD DE ANIMALES POR CADA WETLAND
 		int total=0;
         for(int i=0;i<MAX_SPECIES && species[i]!=null;i++){
@@ -425,6 +436,8 @@ public class Wetland
         }
         return total;		
 	}
+
+
 
 	public boolean searchSpecies(String name){
 	boolean a=false;

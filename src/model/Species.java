@@ -47,36 +47,66 @@ public class Species
 	}
 
 	// Accessors
+    /**
+     * @return String return the name
+     */		
 	public String getName()
 	{
 		return name;
 	}
+    /**
+     * @return String return the scientificName
+     */		
 	public String getScientificName()
 	{
 		return scientificName;
 	}
+
+    /**
+     * @return String return the migratoryType
+     */		
 	public String getMigratoryType()
 	{
 		return migratoryType;
 	}
+
+    /**
+     * @return String return the type
+     */		
 	public String getType()
 	{
 		return type;
 	}
 
 	// Mutators
+	/**
+     * @param name the name to set
+     */		
 	public void setName(String name)
 	{
 		this.name = name;
 	}
+
+	/**
+     * @param scientificName the scientificName to set
+     */		
 	public void setscientificName(String scientificName)
 	{
 		this.scientificName = scientificName;
 	}
+	
+	/**
+     * @param migratoryType the migratoryType to set
+     */		
 	public void setMigratoryType(String migratoryType)
 	{
 		this.migratoryType = migratoryType;
 	}
+	
+	
+	/**
+     * @param type the type to set
+     */		
 	public void setType(String type)
 	{
 		this.type = type;
@@ -84,7 +114,11 @@ public class Species
 
 
 	// toString()
-	
+	/** 
+	* Descripción: This method prints the information of the species <br>
+	* <b> pre:</b> name, scientific name, migratory type and type has to be incializated <br>
+	* @return String, return the geters of the species
+	*/
 	public String toStringSpecies()
 	{
 		return "\n Normal name: "+this.getName()+

@@ -64,10 +64,12 @@ public class EnvoirmentalManagment
         this.typePlan = typePlan;
     }
 
-
-	// toString()
-	public String toStringEM()
-	{
+	/** 
+	* Descripción: This method prints the information of the envoirmental managment <br>
+	* <b> pre:</b> type, percentaje and date has to be incializated <br>
+	* @return String, return the geters of the envoirmental managment
+	*/	
+	public String toStringEM(){ // toString
 		return "\n The type of maintence it's : "+this.getTypePlan()+
 		"\n the percentaje of compliance : "+this.getPercentajePlan()+
 		"\n the date it's:"+date.toString();

@@ -88,8 +88,11 @@ public class Date
 		this.year = year;	
 	}
 
-	
-	// toString()
+	/** 
+	* Descripción: This method prints the information of the date <br>
+	* <b> pre:</b> day, month and year has to be incializated <br>
+	* @return String, return the geters of the date
+	*/	
 	public String toString()
 	{
 		return "\n The day: "+this.getDay()+

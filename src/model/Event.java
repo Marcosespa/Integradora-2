@@ -4,21 +4,23 @@ public class Event
 {
 	// Attributes
 	/**
-	* Descripción: This variable it's going to save the name of the Event</br>
+	* Descripción: This variable it's going to save the name of the Event<br>
 	*/	
 	private String manager;
 	/**
-	* Descripción: This variable it's going to save the cost of the Event</br>
+	* Descripción: This variable it's going to save the cost of the Event<br>
 	*/	
 	private double cost;
 	/**
-	* Descripción: This variable it's going to save the description of the Event</br>
+	* Descripción: This variable it's going to save the description of the Event<br>
 	*/	
 	private String description;
-
+	/**
+	* Descripción: This variable it's going to allow the Event use a date <br>
+	*/	
 	private Date date;
 	/**
-	* Descripción: El metodo constructor va a crear los objetos de tipo Events<br>
+	* Descripción: The constructor method it's going to create the objects of type event <br>
 	* <b> pre:</b> La variable manager deben estar declarada</br>
 	* La variable cost deben estar declarada
 	* La variable description deben estar declarada
@@ -29,8 +31,7 @@ public class Event
 	* @param cost double, Debe ser inicializada 
 	* @param description String, Debe ser inicializada 
 	*/	
-	// Constructor with parameters
-	public Event (String manager, double cost, String description, Date date)
+	public Event (String manager, double cost, String description, Date date)	// Constructor with parameters
 	{
 		this.manager = manager;
 		this.cost = cost;
@@ -39,29 +40,51 @@ public class Event
 	}
 
 	// Accessors
+    /**
+     * @return String return the manager
+     */	
 	public String getManager()
 	{
 		return manager;
 	}
+
+    /**
+     * @return double return the cost
+     */	
 	public Double getCost()
 	{
 		return cost;
 	}
+
+    /**
+     * @return String return the description
+     */	
 	public String getDescription()
 	{
 		return description;
 	}
 
 	// Mutators
+
+	/**
+     * @param manager the manager to set
+     */	
 	public void setManager(String manager)
 	{
 		this.manager = manager;
 	}	
+
+	/**
+     * @param cost the cost to set
+     */		
 	public void setCost(double cost)
 	{
 		this.cost = cost;
-
 	}	
+
+	/**
+     * @param description the description to set
+     */			
 	public void setDescription(String description)
 	{
 		this.description = description;	
@@ -69,6 +92,11 @@ public class Event
 
 	
 	// toString()
+	/** 
+	* Descripción: This method prints the information of the event<br>
+	* <b> pre:</b> type, percentaje and date has to be incializated <br>
+	* @return String, return the geters of the envoirmental managment
+	*/	
 	public String toString()
 	{
 		return "\n The manager of the event it's: "+this.getManager()+

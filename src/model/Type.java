@@ -1,5 +1,0 @@
-package model;
-
-public enum Type{
-    TERRESTRIAL, MAMMAL, BIRD, AQUATICFLORA, TERRESTRIALFLORA;
-}
